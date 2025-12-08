@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>市川市魅力紹介サイト</title>
+    <title>市川市魅力紹介サイト | ICHI-KAWA City Guide</title>
     <!-- Tailwind CSSを読み込み -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -30,243 +30,267 @@
             background-color: #10b981; /* エメラルドグリーン */
             border-radius: 9999px;
         }
+        /* ヒーローセクションの背景スタイル */
+        .hero-bg {
+            background-image: url('https://placehold.co/1200x600/10b981/ffffff?text=Ichikawa+Skyline');
+            background-position: center;
+            background-size: cover;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- ヘッダーとナビゲーション -->
-    <header class="bg-white shadow-md sticky top-0 z-10">
+    <!-- 1. ヘッダー/ナビゲーション -->
+    <header class="sticky top-0 z-20 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- ロゴ/サイト名 -->
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold text-gray-800 tracking-wider">市川市</a>
-                </div>
+                <!-- ロゴ/サイトタイトル -->
+                <a href="#" class="flex items-center space-x-2">
+                    <svg class="h-8 w-8 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-2M5 21H3m2 0h2M7 21h10"/>
+                    </svg>
+                    <span class="text-xl font-extrabold text-gray-800 tracking-wider">市川市魅力ガイド</span>
+                </a>
                 
-                <!-- ナビゲーションメニュー (デスクトップ) -->
-                <nav class="hidden md:block">
-                    <div class="flex space-x-6">
-                        <a href="#home" class="text-gray-600 hover:text-emerald-600 transition duration-150 font-medium p-2 rounded-md">ホーム</a>
-                        <a href="#charms" class="text-gray-600 hover:text-emerald-600 transition duration-150 font-medium p-2 rounded-md">市川市の魅力</a>
-                        <a href="#spots" class="text-gray-600 hover:text-emerald-600 transition duration-150 font-medium p-2 rounded-md">スポット</a>
-                        <a href="#contact" class="text-gray-600 hover:text-emerald-600 transition duration-150 font-medium p-2 rounded-md">お問い合わせ</a>
-                    </div>
+                <!-- ナビゲーションリンク (デスクトップ) -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#about" class="text-gray-600 hover:text-emerald-500 transition duration-150 font-medium">市川について</a>
+                    <a href="#attractions" class="text-gray-600 hover:text-emerald-500 transition duration-150 font-medium">観光スポット</a>
+                    <a href="#culture" class="text-gray-600 hover:text-emerald-500 transition duration-150 font-medium">グルメ・文化</a>
+                    <a href="#access" class="text-gray-600 hover:text-emerald-500 transition duration-150 font-medium">アクセス</a>
                 </nav>
 
-                <!-- モバイルメニューボタン (今回は機能なし、デザインのみ) -->
-                <button class="md:hidden text-gray-600 hover:text-emerald-600 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+                <!-- CTAボタン -->
+                <a href="https://www.city.ichikawa.lg.jp/" target="_blank" class="hidden md:inline-block px-4 py-2 text-sm font-semibold text-white bg-emerald-500 rounded-md shadow-md hover:bg-emerald-600 transition duration-150 transform hover:scale-105">
+                    公式HPへ
+                </a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- ヒーローセクション -->
-        <section id="home" class="bg-cover bg-center h-[60vh] md:h-[80vh] flex items-center justify-center text-white relative" 
-                 style="background-image: url('https://placehold.co/1920x800/10b981/ffffff?text=Ichikawa+City');">
-            <!-- Overlay -->
+        <!-- 2. ヒーローセクション -->
+        <section class="hero-bg h-[60vh] md:h-[80vh] flex items-center justify-center relative shadow-lg">
             <div class="absolute inset-0 bg-black opacity-40"></div>
-            
-            <div class="text-center relative z-10 p-4">
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-                    自然と都会が共演する、<span class="text-emerald-400">彩り豊かなまち</span>。
+            <div class="text-center z-10 p-4">
+                <h1 class="text-white text-4xl md:text-6xl font-extrabold mb-3 leading-tight tracking-wider">
+                    文化と緑が息づく街、市川
                 </h1>
-                <p class="text-lg md:text-xl font-light max-w-3xl mx-auto">
-                    <!-- 市の紹介文 -->
-                    都心への高いアクセス性、江戸川の豊かな自然、そして数多くの歴史的遺産が調和した魅力あふれる街、市川市へようこそ。
+                <p class="text-emerald-400 text-lg md:text-xl font-light mb-8">
+                    東京に隣接しながら、豊かな自然と歴史が調和する街
                 </p>
-                <div class="mt-8">
-                    <a href="#charms" class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white text-lg font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
-                        市川市の魅力を知る
-                    </a>
-                </div>
+                <a href="#attractions" class="inline-block px-8 py-3 text-lg font-bold text-white bg-emerald-500 rounded-full shadow-xl hover:bg-emerald-700 transition duration-300 transform hover:scale-105">
+                    魅力を探る
+                </a>
             </div>
         </section>
 
-        <!-- 市川市の魅力セクション -->
-        <section id="charms" class="py-16 md:py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title mb-12">市川市のハイライト</h2>
+        <!-- 3. 市川について (About Ichikawa) -->
+        <section id="about" class="py-16 bg-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title mx-auto">市川市とは？</h2>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    千葉県の北西部に位置し、江戸川を境に東京都と接する市川市は、古くから交通の要衝として栄えてきました。
+                    文豪や文化人に愛された歴史を持ち、市内には豊かな緑地や自然が多く残されています。
+                    都会の利便性と、落ち着いた住環境が両立する、魅力あふれる街です。
+                </p>
+            </div>
+        </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 4. 観光スポット (Attractions) -->
+        <section id="attractions" class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 section-title mx-auto">必見の観光スポット</h2>
+                    <p class="text-gray-500 mt-1">歴史的な場所から、家族で楽しめる場所まで</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- スポットカード 1: 里見公園 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
+                        <img src="https://placehold.co/600x400/38a169/ffffff?text=Satomi+Park" alt="里見公園" class="h-48 w-full object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">里見公園 (さとみこうえん)</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                                江戸川沿いの高台にあり、桜の名所として有名です。室町時代の武将、里見氏の伝説が残る歴史的な地でもあります。
+                            </p>
+                            <a href="#" class="text-emerald-500 hover:text-emerald-600 font-medium text-sm flex items-center">
+                                詳細を見る
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- スポットカード 2: 市川市動植物園 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
+                        <img src="https://placehold.co/600x400/4c7c8c/ffffff?text=Zoo+%26+Botanical+Garden" alt="市川市動植物園" class="h-48 w-full object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">市川市動植物園</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                                小さなお子様連れに人気のスポット。特にレッサーパンダやサル山が有名で、自然豊かな環境で動物と触れ合えます。
+                            </p>
+                            <a href="#" class="text-emerald-500 hover:text-emerald-600 font-medium text-sm flex items-center">
+                                詳細を見る
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- スポットカード 3: 市川市文学ミュージアム -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
+                        <img src="https://placehold.co/600x400/94a3b8/ffffff?text=Literature+Museum" alt="市川市文学ミュージアム" class="h-48 w-full object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">文学ミュージアム</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                                永井荷風、川端康成など、市川にゆかりの深い文人たちの資料を展示。文学の薫り高い静かな時間を過ごせます。
+                            </p>
+                            <a href="#" class="text-emerald-500 hover:text-emerald-600 font-medium text-sm flex items-center">
+                                詳細を見る
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
                     
-                    <!-- 魅力1: 自然 -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                        <div class="text-emerald-500 mb-4">
-                            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0v-4m0 4h4m-4 0h-4m14-11l2 2m-2-2l-2 2m2-2v4m0 0h-4m4 0h4M3 7l1.64-1.64a2 2 0 012.72 0l4.36 4.36m-7 7l4.36-4.36m0 0l4.36 4.36m-4.36 4.36L12 11m0 0l4.36-4.36m-4.36 4.36L16 11"></path></svg>
+                    <!-- スポットカード 4: 真間川 (ままがわ) -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
+                        <img src="https://placehold.co/600x400/fcd34d/333333?text=Mama+River" alt="真間川の桜" class="h-48 w-full object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">真間川の桜並木</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                                春には川沿いに桜が咲き誇り、市民の憩いの場となっています。特に夜桜のライトアップは幻想的です。
+                            </p>
+                            <a href="#" class="text-emerald-500 hover:text-emerald-600 font-medium text-sm flex items-center">
+                                詳細を見る
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3">豊かな自然</h3>
-                        <!-- 説明文 -->
-                        <p class="text-gray-600 leading-relaxed">
-                            江戸川沿いの広大な河川敷では、サイクリングやジョギング、多様なスポーツが楽しめます。また、大町公園自然観察園やじゅん菜池緑地など、四季折々の風景を楽しめる緑豊かなスポットが豊富にあり、市民の憩いの場となっています。
-                        </p>
                     </div>
-
-                    <!-- 魅力2: 文化・歴史 -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                        <div class="text-emerald-500 mb-4">
-                            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.461 9.208 5 7.5 5S4.168 5.461 3 6.253v13C4.168 18.461 5.832 18 7.5 18s3.332.461 4.5 1.253m0-13C13.168 5.461 14.792 5 16.5 5s3.332.461 4.5 1.253v13C19.832 18.461 18.168 18 16.5 18s-3.332.461-4.5 1.253"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3">歴史と文学の薫り</h3>
-                        <!-- 説明文 -->
-                        <p class="text-gray-600 leading-relaxed">
-                            下総国総鎮守の葛飾八幡宮や、国指定重要文化財を持つ中山法華経寺、手児奈伝説が残る真間山弘法寺など、歴史的な名所が数多く残ります。里見公園には北原白秋の旧居が移築されるなど、文学にゆかりの深い街としても知られています。
-                        </p>
-                    </div>
-
-                    <!-- 魅力3: 利便性・住環境 -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                        <div class="text-emerald-500 mb-4">
-                            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h-2M5 21h2M17 21h-2M12 21V7m-4 4h8"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3">快適な住環境</h3>
-                        <!-- 説明文 -->
-                        <p class="text-gray-600 leading-relaxed">
-                            JR総武線・京葉線など複数の路線が利用可能で、都心（秋葉原、東京駅方面）まで短時間でアクセスできます。都市の利便性と豊かな自然が調和し、子育て世帯にも暮らしやすい環境です。千葉を代表する特産品「市川の梨」も有名です。
-                        </p>
-                    </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- スポット紹介セクション -->
-        <section id="spots" class="py-16 md:py-24 bg-gray-50">
+        <!-- 5. グルメと文化 (Gourmet & Culture) -->
+        <section id="culture" class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title mb-12">魅力的なスポット</h2>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 section-title mx-auto">市川の食と伝統</h2>
+                    <p class="text-gray-500 mt-1">地元で愛される味と、受け継がれる文化</p>
+                </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- 左: グルメ紹介カード -->
+                    <div class="space-y-6">
+                        <!-- カード 1: 市川の梨 -->
+                        <div class="flex bg-gray-50 rounded-xl p-4 shadow-md items-start space-x-4">
+                            <div class="flex-shrink-0 w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-xl">梨</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">特産「市川の梨」</h3>
+                                <p class="text-gray-600 text-sm mt-1">
+                                    江戸時代から続く伝統ある梨の栽培地。甘くてみずみずしい「幸水」「豊水」などが有名で、夏から秋にかけて直売所が賑わいます。
+                                </p>
+                            </div>
+                        </div>
+                        <!-- カード 2: 葛飾八幡宮 -->
+                        <div class="flex bg-gray-50 rounded-xl p-4 shadow-md items-start space-x-4">
+                            <div class="flex-shrink-0 w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-xl">⛩️</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">葛飾八幡宮</h3>
+                                <p class="text-gray-600 text-sm mt-1">
+                                    約1100年の歴史を持つ古社。「千本公孫樹（せんぼんいちょう）」は国指定の天然記念物で、パワースポットとしても知られています。
+                                </p>
+                            </div>
+                        </div>
+                        <!-- カード 3: 江戸川と漁業文化 -->
+                        <div class="flex bg-gray-50 rounded-xl p-4 shadow-md items-start space-x-4">
+                            <div class="flex-shrink-0 w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-xl">🐟</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">江戸川の恵み</h3>
+                                <p class="text-gray-600 text-sm mt-1">
+                                    江戸川河口付近では、江戸前と呼ばれる良質な魚介類が獲れました。今もその歴史は地元の食文化に息づいています。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <!-- スポット1: アイ・リンクタウン展望施設 -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                        <img src="https://placehold.co/600x400/293a5b/ffffff?text=i-Link+Town+Observatory" alt="アイ・リンクタウン展望施設の画像" class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h4 class="text-lg font-semibold text-gray-800 mb-2">アイ・リンクタウン展望施設</h4>
-                            <!-- スポットの説明文 -->
-                            <p class="text-sm text-gray-600">
-                                JR市川駅直結のタワーにある無料展望台。東京スカイツリーや富士山（天気の良い日）まで見渡せる、開放感あふれる絶景スポットです。特に夜景は圧巻です。
-                            </p>
-                        </div>
+                    <!-- 右: イメージ画像 -->
+                    <div>
+                        <img src="https://placehold.co/800x600/10b981/ffffff?text=Ichikawa+Pear+Harvest" 
+                             alt="市川の梨のイメージ" 
+                             class="rounded-xl shadow-2xl w-full object-cover border-4 border-emerald-500"
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x600/60a5fa/ffffff?text=Ichikawa+Local+Delicacy';">
                     </div>
-
-                    <!-- スポット2: 中山法華経寺 -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                        <img src="https://placehold.co/600x400/8b0000/ffffff?text=Hokekyo-ji+Temple" alt="中山法華経寺の画像" class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h4 class="text-lg font-semibold text-gray-800 mb-2">大本山 中山法華経寺</h4>
-                            <!-- スポットの説明文 -->
-                            <p class="text-sm text-gray-600">
-                                鎌倉時代創建の日蓮宗大本山。国指定重要文化財の五重塔や、祖師堂は見る者を圧倒します。境内は広く、春は桜の名所としても賑わいます。
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- スポット3: 里見公園 -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                        <img src="https://placehold.co/600x400/228b22/ffffff?text=Satomi+Park" alt="里見公園の画像" class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h4 class="text-lg font-semibold text-gray-800 mb-2">里見公園</h4>
-                            <!-- スポットの説明文 -->
-                            <p class="text-sm text-gray-600">
-                                江戸川を見下ろす高台にあり、かつて国府台城があった歴史的な場所です。園内にはバラ園もあり、春の桜と初夏・秋のバラが特に有名で、散策に最適です。
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- スポット4: 行徳野鳥観察舎 -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                        <img src="https://placehold.co/600x400/4682b4/ffffff?text=Gyotoku+Bird+Observatory" alt="行徳野鳥観察舎の画像" class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h4 class="text-lg font-semibold text-gray-800 mb-2">行徳野鳥観察舎（あいねすと）</h4>
-                            <!-- スポットの説明文 -->
-                            <p class="text-sm text-gray-600">
-                                行徳近郊緑地にある、水辺の生き物や渡り鳥を観察できる施設。自然豊かな空間で、野鳥の姿を静かに楽しむことができます。
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- アクセス/お問い合わせセクション -->
-        <section id="contact" class="py-16 md:py-24 bg-white">
+        <!-- 6. アクセス情報 (Access) -->
+        <section id="access" class="py-16 bg-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title mb-12">アクセス ＆ お問い合わせ</h2>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 section-title mx-auto">市川へのアクセス</h2>
+                    <p class="text-gray-500 mt-1">都心からすぐ！便利な交通網</p>
+                </div>
                 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <!-- アクセスカード 1: 電車 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500">
+                        <svg class="w-8 h-8 text-emerald-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">主要駅</h3>
+                        <ul class="text-gray-700 text-sm space-y-1">
+                            <li>JR市川駅</li>
+                            <li>JR本八幡駅</li>
+                            <li>京成八幡駅</li>
+                            <li>東京メトロ行徳駅</li>
+                        </ul>
+                    </div>
                     
-                    <!-- アクセス情報 -->
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-4 text-gray-700">市役所所在地・交通アクセス</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            <!-- 所在地やアクセス情報 -->
-                            市川市は都心に近接し、JR総武線・京成線・東京メトロ東西線など複数の鉄道路線が市内を縦横に走っています。主要な施設はJR市川駅周辺に集中しており、アクセスは非常に便利です。
-                            <br>
-                            <span class="font-bold">市役所所在地：</span> 〒272-8501 千葉県市川市八幡1丁目1番1号
-                        </p>
-                        <p class="text-gray-600 mb-4 font-bold">
-                            最寄駅：JR市川駅 / 京成八幡駅
-                        </p>
-                        <!-- 地図のプレースホルダー -->
-                        <div class="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 font-medium border-2 border-dashed border-gray-400">
-                            <!-- Google Mapなどの埋め込みコードをここに挿入 -->
-                            市川市役所周辺の地図を埋め込むと便利です
-                        </div>
+                    <!-- アクセスカード 2: 東京駅からの時間 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500">
+                        <svg class="w-8 h-8 text-emerald-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">東京駅からの所要時間</h3>
+                        <p class="text-3xl font-bold text-emerald-500">約 18 分</p>
+                        <p class="text-gray-600 text-sm mt-1">（JR総武線快速利用）</p>
                     </div>
 
-                    <!-- お問い合わせフォーム (デザインのみ) -->
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-4 text-gray-700">ウェブサイトに関するお問い合わせ</h3>
-                        <form class="space-y-4 bg-gray-50 p-6 rounded-xl shadow-inner">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700">お名前</label>
-                                <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-emerald-500 focus:border-emerald-500" placeholder="例：山田 太郎">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">メールアドレス</label>
-                                <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-emerald-500 focus:border-emerald-500" placeholder="例：example@ichikawa.jp">
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700">メッセージ</label>
-                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-emerald-500 focus:border-emerald-500" placeholder="ご意見・ご感想をご記入ください"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
-                                送信する
-                            </button>
-                        </form>
+                    <!-- アクセスカード 3: 高速道路 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500">
+                        <svg class="w-8 h-8 text-emerald-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.553-.832L9 7m0 13l6-3m-6 3V7m6 13l5.447-2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.553-.832L15 7m0 13V7"></path></svg>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">自動車</h3>
+                        <p class="text-gray-700 text-sm">
+                            京葉道路、外環自動車道に近く、車でのアクセスも良好です。
+                        </p>
                     </div>
-
                 </div>
+            </div>
+        </section>
+        
+        <!-- 7. 問い合わせ/最終CTA -->
+        <section class="py-16 bg-emerald-600">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-white mb-3">市川市をもっと知ろう</h2>
+                <p class="text-emerald-200 text-lg mb-8">移住・観光・子育てに関する情報はこちらから。</p>
+                <a href="https://www.city.ichikawa.lg.jp/" target="_blank" class="inline-block px-10 py-3 text-lg font-bold text-emerald-600 bg-white rounded-full shadow-xl hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                    市川市公式ウェブサイトへ
+                </a>
             </div>
         </section>
 
     </main>
 
-    <!-- フッター -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <nav class="mb-4 space-x-4">
-                <a href="#home" class="text-gray-400 hover:text-emerald-400 transition duration-150">ホーム</a>
-                <a href="#charms" class="text-gray-400 hover:text-emerald-400 transition duration-150">魅力</a>
-                <a href="#spots" class="text-gray-400 hover:text-emerald-400 transition duration-150">スポット</a>
-            </nav>
-            <p class="text-gray-500 text-sm">© 2025 市川市魅力紹介サイト. All rights reserved. 企画・制作: 気づいて市川 築いてICHIKAWA実行委員会</p>
+    <!-- 8. フッター -->
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
+                <div class="text-gray-400 text-sm">
+                    &copy; 2025 Ichikawa City Promotion Site. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#about" class="text-gray-400 hover:text-emerald-400 transition text-sm">プライバシーポリシー</a>
+                    <a href="#access" class="text-gray-400 hover:text-emerald-400 transition text-sm">サイトマップ</a>
+                </div>
+            </div>
         </div>
     </footer>
-
-    <!-- スムーズスクロールのためのJavaScript (オプション) -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 
 </body>
 </html>
