@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>市川市魅力紹介サイト | ICHI-KAWA City Guide</title>
-    <!-- Tailwind CSSを読み込み -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- カスタムCSSはここに記述する必要があります -->
     <style>
-        /* カスタムフォントと基本設定 */
         body {
             font-family: 'Inter', sans-serif;
             color: #333;
             background-color: #f8f8f8;
         }
-        /* セクションタイトルを強調 */
         .section-title {
             position: relative;
             padding-bottom: 0.5rem;
@@ -28,25 +24,22 @@
             bottom: 0;
             width: 50%;
             height: 4px;
-            background-color: #10b981; /* エメラルドグリーン */
+            background-color: #10b981;
             border-radius: 9999px;
         }
         
-        /* ヒーローセクションの背景コンテナ */
         .hero-bg-container {
             position: relative;
-            background-color: #10b981; /* 画像が薄くなった後に見える色（現在と同じエメラルドグリーン） */
+            background-color: #10b981;
             height: 60vh;
             max-height: 80vh;
-            overflow: hidden; /* 画像のスクロールをコンテナ内に制限 */
+            overflow: hidden;
         }
         
-        /* ヒーロー画像 (スクロールでフェードアウトさせる対象) */
         .hero-image {
             /* ---------------------------------------------------- */
-            /* ★★★ここに使用したい画像URLを設定してください★★★ */
-            /* 例: url('https://placehold.co/1600x900/10b981/ffffff?text=Ichikawa+Scenery') */
-            background-image: url('https://placehold.co/1600x900/10b981/ffffff?text=Ichikawa+City+Scenery'); 
+            /* ここに使用したい背景画像URLを設定してください */
+            background-image: url(); 
             /* ---------------------------------------------------- */
             background-size: cover;
             background-position: center;
@@ -55,29 +48,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            transition: opacity 0.1s ease-out; /* スムーズなフェードアウトのため */
+            transition: opacity 0.1s ease-out;
             z-index: 10;
         }
 
-        /* ヒーローコンテンツ (テキスト部分) */
         .hero-content {
             z-index: 20;
         }
         
-        /* オーバーレイ (テキストと画像の間に配置するためのz-indexを調整) */
         .overlay {
-            z-index: 15; /* 画像(10)より上で、テキスト(20)より下に配置 */
+            z-index: 15;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- 1. ヘッダー/ナビゲーション -->
-    <!-- stickyからfixedに変更し、w-fullとz-50を追加して最前面に固定 -->
     <header class="fixed top-0 w-full z-50 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- ロゴ/サイトタイトル -->
                 <a href="#" class="flex items-center space-x-2">
                     <svg class="h-8 w-8 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-2M5 21H3m2 0h2M7 21h10"/>
@@ -85,7 +73,6 @@
                     <span class="text-xl font-extrabold text-gray-800 tracking-wider">市川市魅力ガイド</span>
                 </a>
                 
-                <!-- ナビゲーションリンク (デスクトップ) -->
                 <nav class="hidden md:flex space-x-6">
                     <a href="#about" class="text-gray-600 hover:text-emerald-500 transition duration-150 font-medium">市川について</a>
                     <a href="#attractions" class="text-gray-600 hover:text-emerald-500 transition duration-150 font-medium">観光スポット</a>
@@ -93,7 +80,6 @@
                     <a href="#access" class="text-gray-600 hover:text-emerald-500 transition duration-150 font-medium">アクセス</a>
                 </nav>
 
-                <!-- CTAボタン -->
                 <a href="https://www.city.ichikawa.lg.jp/" target="_blank" class="hidden md:inline-block px-4 py-2 text-sm font-semibold text-white bg-emerald-500 rounded-md shadow-md hover:bg-emerald-600 transition duration-150 transform hover:scale-105">
                     公式HPへ
                 </a>
@@ -102,17 +88,12 @@
     </header>
 
     <main>
-        <!-- 2. ヒーローセクション -->
-        <!-- ヘッダーの高さ分(h-16)のpt-16を追加して、コンテンツを押し下げる -->
         <section class="pt-16 hero-bg-container h-[60vh] md:h-[80vh] flex items-center justify-center relative shadow-lg">
             
-            <!-- ヒーロー背景画像 (スクロールで透過度を変更) -->
             <div id="heroImage" class="hero-image"></div>
 
-            <!-- 画像の上に重ねるための薄い黒のオーバーレイ -->
             <div class="absolute inset-0 bg-black opacity-40 overlay"></div>
             
-            <!-- ヒーローテキストコンテンツ (z-index: 20で最前面を維持) -->
             <div class="hero-content text-center p-4">
                 <h1 class="text-white text-4xl md:text-6xl font-extrabold mb-3 leading-tight tracking-wider">
                     文化と緑が息づく街、市川
@@ -126,7 +107,6 @@
             </div>
         </section>
 
-        <!-- 3. 市川について (About Ichikawa) -->
         <section id="about" class="py-16 bg-white">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title mx-auto">市川市とは？</h2>
@@ -138,7 +118,6 @@
             </div>
         </section>
 
-        <!-- 4. 観光スポット (Attractions) -->
         <section id="attractions" class="py-16 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
@@ -147,7 +126,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- スポットカード 1: 里見公園 -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
                         <div class="p-6">
                             <h3 class="text-xl font-semibold text-gray-800 mb-2">里見公園 (さとみこうえん)</h3>
@@ -161,7 +139,6 @@
                         </div>
                     </div>
 
-                    <!-- スポットカード 2: 市川市動植物園 -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
                         <div class="p-6">
                             <h3 class="text-xl font-semibold text-gray-800 mb-2">市川市動植物園</h3>
@@ -175,7 +152,6 @@
                         </div>
                     </div>
 
-                    <!-- スポットカード 3: 市川市文学ミュージアム -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
                         <div class="p-6">
                             <h3 class="text-xl font-semibold text-gray-800 mb-2">文学ミュージアム</h3>
@@ -189,7 +165,6 @@
                         </div>
                     </div>
                     
-                    <!-- スポットカード 4: 真間川 (ままがわ) -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
                         <div class="p-6">
                             <h3 class="text-xl font-semibold text-gray-800 mb-2">真間川の桜並木</h3>
@@ -206,7 +181,6 @@
             </div>
         </section>
 
-        <!-- 5. グルメと文化 (Gourmet & Culture) -->
         <section id="culture" class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
@@ -215,9 +189,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 gap-12 items-center">
-                    <!-- グルメ紹介カード (全幅に展開) -->
                     <div class="space-y-6">
-                        <!-- カード 1: 市川の梨 -->
                         <div class="flex bg-gray-50 rounded-xl p-4 shadow-md items-start space-x-4">
                             <div class="flex-shrink-0 w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-xl">梨</div>
                             <div>
@@ -227,7 +199,6 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- カード 2: 葛飾八幡宮 -->
                         <div class="flex bg-gray-50 rounded-xl p-4 shadow-md items-start space-x-4">
                             <div class="flex-shrink-0 w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-xl">⛩️</div>
                             <div>
@@ -237,7 +208,6 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- カード 3: 江戸川と漁業文化 -->
                         <div class="flex bg-gray-50 rounded-xl p-4 shadow-md items-start space-x-4">
                             <div class="flex-shrink-0 w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-xl">🐟</div>
                             <div>
@@ -252,7 +222,6 @@
             </div>
         </section>
 
-        <!-- 6. アクセス情報 (Access) -->
         <section id="access" class="py-16 bg-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
@@ -261,7 +230,6 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <!-- アクセスカード 1: 電車 -->
                     <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500">
                         <svg class="w-8 h-8 text-emerald-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">主要駅</h3>
@@ -273,7 +241,6 @@
                         </ul>
                     </div>
                     
-                    <!-- アクセスカード 2: 東京駅からの時間 -->
                     <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500">
                         <svg class="w-8 h-8 text-emerald-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">東京駅からの所要時間</h3>
@@ -281,7 +248,6 @@
                         <p class="text-gray-600 text-sm mt-1">（JR総武線快速利用）</p>
                     </div>
 
-                    <!-- アクセスカード 3: 高速道路 -->
                     <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500">
                         <svg class="w-8 h-8 text-emerald-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.553-.832L9 7m0 13l6-3m-6 3V7m6 13l5.447-2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.553-.832L15 7m0 13V7"></path></svg>
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">自動車</h3>
@@ -293,7 +259,6 @@
             </div>
         </section>
         
-        <!-- 7. 問い合わせ/最終CTA -->
         <section class="py-16 bg-emerald-600">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-3xl font-bold text-white mb-3">市川市をもっと知ろう</h2>
@@ -306,7 +271,6 @@
 
     </main>
 
-    <!-- 8. フッター -->
     <footer class="bg-gray-800 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
@@ -325,38 +289,29 @@
         document.addEventListener('DOMContentLoaded', () => {
             const heroImage = document.getElementById('heroImage');
             
-            // heroImageの高さが0になるのを防ぐため、親要素の高さを使用
             const heroContainer = document.querySelector('.hero-bg-container');
-            const heroHeight = heroContainer.offsetHeight; // ヒーローセクションの初期の高さ
 
             function updateHeroOpacity() {
-                // heroContainer.offsetHeightが非同期で取得される可能性があるため、ここで再確認する
                 const currentHeroHeight = heroContainer.offsetHeight; 
                 
-                // 現在のスクロール位置を取得
                 const scrollY = window.scrollY;
                 
-                // ヒーローセクションの高さの約60%をフェードアウトの範囲とする
                 const fadeStart = 0;
-                // heroContainerが確実に高さを保持していることを期待して計算
                 const fadeEnd = currentHeroHeight * 0.6; 
                 
                 let opacity = 1;
 
                 if (scrollY <= fadeStart) {
-                    opacity = 1; // スクロール開始前は完全に不透明
+                    opacity = 1;
                 } else if (scrollY >= fadeEnd) {
-                    opacity = 0; // フェードアウト終了位置以降は完全に透明
+                    opacity = 0;
                 } else {
-                    // スクロール位置に応じて透明度を計算 (1.0 -> 0.0)
                     opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
                 }
 
-                // 計算した透明度を適用
                 heroImage.style.opacity = opacity;
             }
             
-            // 初回ロード時とリサイズ時に高さを再取得するためのObserverを設定
             const resizeObserver = new ResizeObserver(entries => {
                 for (let entry of entries) {
                     if (entry.target === heroContainer) {
@@ -366,11 +321,8 @@
             });
             resizeObserver.observe(heroContainer);
 
-
-            // スクロールイベントリスナーを設定
             window.addEventListener('scroll', updateHeroOpacity);
             
-            // 初回ロード時にも実行
             updateHeroOpacity();
         });
     </script>
