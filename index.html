@@ -1,12 +1,279 @@
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-
-<meta charset="UTF-8">
-
-<title>市川市紹介</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>市川市魅力紹介サイト</title>
+    <!-- Tailwind CSSを読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* カスタムフォントと基本設定 */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        /* セクションタイトルを強調 */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            height: 4px;
+            background-color: #10b981; /* エメラルドグリーン */
+            border-radius: 9999px;
+        }
+    </style>
 </head>
-<body>
-<h1><ruby>市川<rt>いちかわ</rt></ruby>市の紹介</h1>
-<p>人口は約50万人で、千葉県内では千葉市、船橋市に次いで第3位の人口規模であり、<ruby>葛飾<rt>かつしか</rt></ruby>地域に属している市川市。このサイトでは市川市の魅力を解説していきます。</p>
+<body class="antialiased">
+
+    <!-- ヘッダーとナビゲーション -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- ロゴ/サイト名 -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-gray-800 tracking-wider">市川市</a>
+                </div>
+                
+                <!-- ナビゲーションメニュー (デスクトップ) -->
+                <nav class="hidden md:block">
+                    <div class="flex space-x-6">
+                        <a href="#home" class="text-gray-600 hover:text-emerald-600 transition duration-150 font-medium p-2 rounded-md">ホーム</a>
+                        <a href="#charms" class="text-gray-600 hover:text-emerald-600 transition duration-150 font-medium p-2 rounded-md">市川市の魅力</a>
+                        <a href="#spots" class="text-gray-600 hover:text-emerald-600 transition duration-150 font-medium p-2 rounded-md">スポット</a>
+                        <a href="#contact" class="text-gray-600 hover:text-emerald-600 transition duration-150 font-medium p-2 rounded-md">お問い合わせ</a>
+                    </div>
+                </nav>
+
+                <!-- モバイルメニューボタン (今回は機能なし、デザインのみ) -->
+                <button class="md:hidden text-gray-600 hover:text-emerald-600 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ヒーローセクション -->
+        <section id="home" class="bg-cover bg-center h-[60vh] md:h-[80vh] flex items-center justify-center text-white relative" 
+                 style="background-image: url('https://placehold.co/1920x800/22c55e/ffffff?text=Ichikawa+City+Image+Placeholder');">
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black opacity-40"></div>
+            
+            <div class="text-center relative z-10 p-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    市川市の<span class="text-emerald-400">キャッチコピー</span>をここに
+                </h1>
+                <p class="text-lg md:text-xl font-light max-w-3xl mx-auto">
+                    <!-- 市の紹介文の空欄 -->
+                    市川市は、〇〇と〇〇が調和した魅力あふれる街です。
+                </p>
+                <div class="mt-8">
+                    <a href="#charms" class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white text-lg font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                        市川市の魅力を知る
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 市川市の魅力セクション -->
+        <section id="charms" class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title mb-12">市川市のハイライト</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- 魅力1: 自然 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                        <div class="text-emerald-500 mb-4">
+                            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0v-4m0 4h4m-4 0h-4m14-11l2 2m-2-2l-2 2m2-2v4m0 0h-4m4 0h4M3 7l1.64-1.64a2 2 0 012.72 0l4.36 4.36m-7 7l4.36-4.36m0 0l4.36 4.36m-4.36-4.36L12 11m0 0l4.36-4.36m-4.36 4.36L16 11"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">豊かな自然</h3>
+                        <!-- 説明文の空欄 -->
+                        <p class="text-gray-600 leading-relaxed">
+                            <!-- 自然に関する具体的な内容をここに記述 -->
+                            [ここに詳細な説明文を入力]
+                        </p>
+                        <!-- ここに文章を入力してください -->
+                    </div>
+
+                    <!-- 魅力2: 文化・歴史 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                        <div class="text-emerald-500 mb-4">
+                            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.461 9.208 5 7.5 5S4.168 5.461 3 6.253v13C4.168 18.461 5.832 18 7.5 18s3.332.461 4.5 1.253m0-13C13.168 5.461 14.792 5 16.5 5s3.332.461 4.5 1.253v13C19.832 18.461 18.168 18 16.5 18s-3.332.461-4.5 1.253"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">歴史と文化</h3>
+                        <!-- 説明文の空欄 -->
+                        <p class="text-gray-600 leading-relaxed">
+                            <!-- 文化・歴史に関する具体的な内容をここに記述 -->
+                            [ここに詳細な説明文を入力]
+                        </p>
+                        <!-- ここに文章を入力してください -->
+                    </div>
+
+                    <!-- 魅力3: 利便性・住環境 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                        <div class="text-emerald-500 mb-4">
+                            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h-2M5 21h2M17 21h-2M12 21V7m-4 4h8"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">快適な住環境</h3>
+                        <!-- 説明文の空欄 -->
+                        <p class="text-gray-600 leading-relaxed">
+                            <!-- 利便性・住環境に関する具体的な内容をここに記述 -->
+                            [ここに詳細な説明文を入力]
+                        </p>
+                        <!-- ここに文章を入力してください -->
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- スポット紹介セクション -->
+        <section id="spots" class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title mb-12">魅力的なスポット</h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- スポット1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://placehold.co/600x400/10b981/ffffff?text=Spot+1" alt="スポット1の画像" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">スポット名 1</h4>
+                            <!-- スポットの説明文の空欄 -->
+                            <p class="text-sm text-gray-600">
+                                <!-- スポット1に関する具体的な内容をここに記述 -->
+                                [ここに簡単な説明文を入力]
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- スポット2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://placehold.co/600x400/059669/ffffff?text=Spot+2" alt="スポット2の画像" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">スポット名 2</h4>
+                            <!-- スポットの説明文の空欄 -->
+                            <p class="text-sm text-gray-600">
+                                <!-- スポット2に関する具体的な内容をここに記述 -->
+                                [ここに簡単な説明文を入力]
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- スポット3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://placehold.co/600x400/047857/ffffff?text=Spot+3" alt="スポット3の画像" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">スポット名 3</h4>
+                            <!-- スポットの説明文の空欄 -->
+                            <p class="text-sm text-gray-600">
+                                <!-- スポット3に関する具体的な内容をここに記述 -->
+                                [ここに簡単な説明文を入力]
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- スポット4 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://placehold.co/600x400/065f46/ffffff?text=Spot+4" alt="スポット4の画像" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">スポット名 4</h4>
+                            <!-- スポットの説明文の空欄 -->
+                            <p class="text-sm text-gray-600">
+                                <!-- スポット4に関する具体的な内容をここに記述 -->
+                                [ここに簡単な説明文を入力]
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- アクセス/お問い合わせセクション -->
+        <section id="contact" class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title mb-12">アクセス ＆ お問い合わせ</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- アクセス情報 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-700">市役所所在地・交通アクセス</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            <!-- 所在地やアクセス情報の空欄 -->
+                            [ここに市川市役所の住所や主要駅からのアクセス方法などの詳細情報を入力]
+                            <br>
+                            最寄駅：〇〇駅
+                        </p>
+                        <!-- 地図のプレースホルダー -->
+                        <div class="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 font-medium border-2 border-dashed border-gray-400">
+                            <!-- Google Mapなどの埋め込みコードをここに挿入 -->
+                            地図埋め込み（例：Google Map iFrame）
+                        </div>
+                    </div>
+
+                    <!-- お問い合わせフォーム (デザインのみ) -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-700">ウェブサイトに関するお問い合わせ</h3>
+                        <form class="space-y-4 bg-gray-50 p-6 rounded-xl shadow-inner">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">お名前</label>
+                                <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-emerald-500 focus:border-emerald-500" placeholder="（空欄）">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">メールアドレス</label>
+                                <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-emerald-500 focus:border-emerald-500" placeholder="（空欄）">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">メッセージ</label>
+                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-emerald-500 focus:border-emerald-500" placeholder="（空欄）"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                送信する
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <nav class="mb-4 space-x-4">
+                <a href="#home" class="text-gray-400 hover:text-emerald-400 transition duration-150">ホーム</a>
+                <a href="#charms" class="text-gray-400 hover:text-emerald-400 transition duration-150">魅力</a>
+                <a href="#spots" class="text-gray-400 hover:text-emerald-400 transition duration-150">スポット</a>
+            </nav>
+            <p class="text-gray-500 text-sm">© 2025 市川市魅力紹介サイト. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- スムーズスクロールのためのJavaScript (オプション) -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
