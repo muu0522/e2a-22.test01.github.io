@@ -31,20 +31,50 @@
             background-color: #10b981; /* エメラルドグリーン */
             border-radius: 9999px;
         }
-        /* ヒーローセクションの背景スタイル - 画像を削除し、色のみに設定 */
-        .hero-bg {
-            background-color: #10b981; /* 背景色をエメラルドグリーンに設定 */
-            /* background-image: none; */
-            background-position: center;
-            background-size: cover;
+        
+        /* ヒーローセクションの背景コンテナ */
+        .hero-bg-container {
+            position: relative;
+            background-color: #10b981; /* 画像が薄くなった後に見える色（現在と同じエメラルドグリーン） */
+            height: 60vh;
+            max-height: 80vh;
+            overflow: hidden; /* 画像のスクロールをコンテナ内に制限 */
         }
-        /* 画像の代替として使われていたプレースホルダークラスは、HTMLから要素ごと削除されるため、ここでは不要になりますが、念のため残しておきます。 */
+        
+        /* ヒーロー画像 (スクロールでフェードアウトさせる対象) */
+        .hero-image {
+            /* ---------------------------------------------------- */
+            /* ★★★ここに使用したい画像URLを設定してください★★★ */
+            /* 例: url('https://placehold.co/1600x900/10b981/ffffff?text=Ichikawa+Scenery') */
+            background-image: url('https://placehold.co/1600x900/10b981/ffffff?text=Ichikawa+City+Scenery'); 
+            /* ---------------------------------------------------- */
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.1s ease-out; /* スムーズなフェードアウトのため */
+            z-index: 10;
+        }
+
+        /* ヒーローコンテンツ (テキスト部分) */
+        .hero-content {
+            z-index: 20;
+        }
+        
+        /* オーバーレイ (テキストと画像の間に配置するためのz-indexを調整) */
+        .overlay {
+            z-index: 15; /* 画像(10)より上で、テキスト(20)より下に配置 */
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- 1. ヘッダー/ナビゲーション -->
-    <header class="sticky top-0 z-20 bg-white shadow-md">
+    <!-- stickyからfixedに変更し、w-fullとz-50を追加して最前面に固定 -->
+    <header class="fixed top-0 w-full z-50 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- ロゴ/サイトタイトル -->
@@ -65,7 +95,7 @@
 
                 <!-- CTAボタン -->
                 <a href="https://www.city.ichikawa.lg.jp/" target="_blank" class="hidden md:inline-block px-4 py-2 text-sm font-semibold text-white bg-emerald-500 rounded-md shadow-md hover:bg-emerald-600 transition duration-150 transform hover:scale-105">
-                    市川市公式HPへ
+                    公式HPへ
                 </a>
             </div>
         </div>
@@ -73,10 +103,17 @@
 
     <main>
         <!-- 2. ヒーローセクション -->
-        <!-- 背景画像はカスタムスタイルで削除し、色背景にしています -->
-        <section class="hero-bg h-[60vh] md:h-[80vh] flex items-center justify-center relative shadow-lg">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="text-center z-10 p-4">
+        <!-- ヘッダーの高さ分(h-16)のpt-16を追加して、コンテンツを押し下げる -->
+        <section class="pt-16 hero-bg-container h-[60vh] md:h-[80vh] flex items-center justify-center relative shadow-lg">
+            
+            <!-- ヒーロー背景画像 (スクロールで透過度を変更) -->
+            <div id="heroImage" class="hero-image"></div>
+
+            <!-- 画像の上に重ねるための薄い黒のオーバーレイ -->
+            <div class="absolute inset-0 bg-black opacity-40 overlay"></div>
+            
+            <!-- ヒーローテキストコンテンツ (z-index: 20で最前面を維持) -->
+            <div class="hero-content text-center p-4">
                 <h1 class="text-white text-4xl md:text-6xl font-extrabold mb-3 leading-tight tracking-wider">
                     文化と緑が息づく街、市川
                 </h1>
@@ -112,7 +149,6 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- スポットカード 1: 里見公園 -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
-                        <!-- プレースホルダー削除のため、画像相当の要素を削除 -->
                         <div class="p-6">
                             <h3 class="text-xl font-semibold text-gray-800 mb-2">里見公園 (さとみこうえん)</h3>
                             <p class="text-sm text-gray-600 leading-relaxed mb-4">
@@ -127,7 +163,6 @@
 
                     <!-- スポットカード 2: 市川市動植物園 -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
-                        <!-- プレースホルダー削除のため、画像相当の要素を削除 -->
                         <div class="p-6">
                             <h3 class="text-xl font-semibold text-gray-800 mb-2">市川市動植物園</h3>
                             <p class="text-sm text-gray-600 leading-relaxed mb-4">
@@ -142,7 +177,6 @@
 
                     <!-- スポットカード 3: 市川市文学ミュージアム -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
-                        <!-- プレースホルダー削除のため、画像相当の要素を削除 -->
                         <div class="p-6">
                             <h3 class="text-xl font-semibold text-gray-800 mb-2">文学ミュージアム</h3>
                             <p class="text-sm text-gray-600 leading-relaxed mb-4">
@@ -157,7 +191,6 @@
                     
                     <!-- スポットカード 4: 真間川 (ままがわ) -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
-                        <!-- プレースホルダー削除のため、画像相当の要素を削除 -->
                         <div class="p-6">
                             <h3 class="text-xl font-semibold text-gray-800 mb-2">真間川の桜並木</h3>
                             <p class="text-sm text-gray-600 leading-relaxed mb-4">
@@ -181,7 +214,6 @@
                     <p class="text-gray-500 mt-1">地元で愛される味と、受け継がれる文化</p>
                 </div>
 
-                <!-- 変更点: グルメ紹介カードのレイアウトを全幅（grid-cols-1）に統一し、空の右側のスペースを削除しました。 -->
                 <div class="grid grid-cols-1 gap-12 items-center">
                     <!-- グルメ紹介カード (全幅に展開) -->
                     <div class="space-y-6">
@@ -279,12 +311,69 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
                 <div class="text-gray-400 text-sm">
+                    &copy; 2025 Ichikawa City Promotion Site. All rights reserved.
                 </div>
                 <div class="flex space-x-6">
+                    <a href="#about" class="text-gray-400 hover:text-emerald-400 transition text-sm">プライバシーポリシー</a>
+                    <a href="#access" class="text-gray-400 hover:text-emerald-400 transition text-sm">サイトマップ</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroImage = document.getElementById('heroImage');
+            
+            // heroImageの高さが0になるのを防ぐため、親要素の高さを使用
+            const heroContainer = document.querySelector('.hero-bg-container');
+            const heroHeight = heroContainer.offsetHeight; // ヒーローセクションの初期の高さ
+
+            function updateHeroOpacity() {
+                // heroContainer.offsetHeightが非同期で取得される可能性があるため、ここで再確認する
+                const currentHeroHeight = heroContainer.offsetHeight; 
+                
+                // 現在のスクロール位置を取得
+                const scrollY = window.scrollY;
+                
+                // ヒーローセクションの高さの約60%をフェードアウトの範囲とする
+                const fadeStart = 0;
+                // heroContainerが確実に高さを保持していることを期待して計算
+                const fadeEnd = currentHeroHeight * 0.6; 
+                
+                let opacity = 1;
+
+                if (scrollY <= fadeStart) {
+                    opacity = 1; // スクロール開始前は完全に不透明
+                } else if (scrollY >= fadeEnd) {
+                    opacity = 0; // フェードアウト終了位置以降は完全に透明
+                } else {
+                    // スクロール位置に応じて透明度を計算 (1.0 -> 0.0)
+                    opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
+                }
+
+                // 計算した透明度を適用
+                heroImage.style.opacity = opacity;
+            }
+            
+            // 初回ロード時とリサイズ時に高さを再取得するためのObserverを設定
+            const resizeObserver = new ResizeObserver(entries => {
+                for (let entry of entries) {
+                    if (entry.target === heroContainer) {
+                        updateHeroOpacity();
+                    }
+                }
+            });
+            resizeObserver.observe(heroContainer);
+
+
+            // スクロールイベントリスナーを設定
+            window.addEventListener('scroll', updateHeroOpacity);
+            
+            // 初回ロード時にも実行
+            updateHeroOpacity();
+        });
+    </script>
 
 </body>
 </html>
